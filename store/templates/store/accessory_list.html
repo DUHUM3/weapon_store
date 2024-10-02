@@ -1,0 +1,23 @@
+{% extends 'store/base.html' %}
+
+{% block title %}قائمة الإكسسوارات{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">قائمة الإكسسوارات</h1>
+
+<div class="row">
+    {% for accessory in accessories %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">  <!-- أضفنا h-100 هنا -->
+            <img src="{{ accessory.image.url }}" class="card-img-top" alt="{{ accessory.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ accessory.name }}</h5>
+                <p class="card-text">{{ accessory.description|truncatewords:15 }}</p>
+                <p class="card-text"><strong>السعر: </strong>{{ accessory.price }}$</p>
+                <a href="{% url 'accessory_detail' accessory.id %}" class="btn btn-primary">عرض التفاصيل</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

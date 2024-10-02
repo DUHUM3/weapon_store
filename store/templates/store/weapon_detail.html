@@ -1,0 +1,18 @@
+{% extends 'store/base.html' %}
+
+{% block title %}{{ weapon.name }}{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-6">
+        <img src="{{ weapon.image.url }}" class="img-fluid" alt="{{ weapon.name }}">
+    </div>
+    <div class="col-md-6">
+        <h1>{{ weapon.name }}</h1>
+        <p>{{ weapon.description }}</p>
+        <p><strong>السعر: </strong>{{ weapon.price }}$</p>
+        <p><strong>الكمية المتاحة: </strong>{{ weapon.stock }}</p>
+        <a href="{% url 'weapon_list' %}" class="btn btn-secondary mt-3">عودة إلى القائمة</a>
+    </div>
+</div>
+{% endblock %}

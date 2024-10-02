@@ -1,0 +1,23 @@
+{% extends 'store/base.html' %}
+
+{% block title %}قائمة الأسلحة{% endblock %}
+
+{% block content %}
+<h1 class="text-center mb-4">قائمة الأسلحة</h1>
+
+<div class="row">
+    {% for weapon in weapons %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">  <!-- أضفنا h-100 هنا -->
+            <img src="{{ weapon.image.url }}" class="card-img-top" alt="{{ weapon.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ weapon.name }}</h5>
+                <p class="card-text">{{ weapon.description|truncatewords:15 }}</p>
+                <p class="card-text"><strong>السعر: </strong>{{ weapon.price }}$</p>
+                <a href="{% url 'weapon_detail' weapon.id %}" class="btn btn-primary">عرض التفاصيل</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

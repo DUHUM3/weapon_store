@@ -1,0 +1,13 @@
+{% extends 'store/base.html' %}
+
+{% block title %}تفاصيل السلاح{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ weapon.name }}</h1>
+    <img src="{{ weapon.image.url }}" alt="{{ weapon.name }}" class="img-fluid">
+    <p><strong>السعر:</strong> {{ weapon.price }}$</p>
+    <p><strong>الوصف:</strong> {{ weapon.description }}</p>
+    <a href="{% url 'weapon_list' %}" class="btn btn-secondary">العودة إلى القائمة</a>
+</div>
+{% endblock %}
